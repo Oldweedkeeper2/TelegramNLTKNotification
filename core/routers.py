@@ -18,7 +18,11 @@ async def handle_message(client: Client, message: Message):
         # Пересылка сообщений в группу
         
         # Здесь можно добавить код для внешнего алерта, например, отправку уведомления
-        await client.forward_messages(config.FORWARD_GROUP_ID, message.chat.id, message.id)
+        try:
+            await client.forward_messages(config.FORWARD_GROUP_ID, message.chat.id, message.id)
+        except Exception as e:
+            print(f"Произошла ошибка: {e}")
+            # traceback.print_exc()
         play_sound(config.ALERT_SOUND_PATH)  # Воспроизведение звука алерта
         show_alert_window()
     
@@ -26,5 +30,7 @@ async def handle_message(client: Client, message: Message):
     if message.text and is_test_group_text(message.text):
         print("Тестовая группа: Найдено совпадение для текста тестовой группы!\n", message.text)
         # Пересылка сообщений в группу
-        
-        await client.forward_messages(config.FORWARD_GROUP_ID, message.chat.id, message.id)
+        try:
+            await client.forward_messages(config.FORWARD_GROUP_ID, message.chat.id, message.id)
+        except Exception as e:
+            print(f"Произошла ошибка: {e}")

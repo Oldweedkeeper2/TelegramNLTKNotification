@@ -1,7 +1,7 @@
 # ANSI escape-код для пурпурного цвета
-from art import art, text2art, tprint, aprint
 
 PURPLE = '\033[95m'
+RED = '\033[91m'
 END = '\033[0m'
 
 # ASCII-арт для "EUPHORIA ALERT"
@@ -16,3 +16,6 @@ ascii_art = """
 purple_ascii_art = PURPLE + ascii_art + END
 
 created_by_text = PURPLE + "    Created by github.com/Oldweedkeeper2" + END
+
+attention_text = RED + ("\nATTENTION: IF THIS IS YOUR FIRST TIME RUNNING THIS SCRIPT,"
+                           " REGISTER YOUR APPLICATION AND CREATE A SESSION FOR IT.\n") + END
